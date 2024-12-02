@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Main() {
   const publishedPost = posts.filter((post) => post.published === true);
-
+  const [updatedPosts, setUpdatedPosts] = useState(posts);
   const tags = [];
 
   posts.forEach((post) => {
@@ -28,6 +28,7 @@ export default function Main() {
           <form onSubmit={addPost} action=" ">
             <input
               type="text"
+              onChange={(e) => setPostName(e.target.value)}
               placeholder="Inserisci il titolo del nuovo post"
               value={postName}
             />
