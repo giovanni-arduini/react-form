@@ -1,5 +1,6 @@
-import Card from "./posts/Card";
-import { posts } from "../posts";
+import Card from "../posts/Card";
+import { posts } from "../../posts";
+import style from "./Main.module.css";
 
 export default function Main() {
   const publishedPost = posts.filter((post) => post.published === true);
@@ -15,6 +16,16 @@ export default function Main() {
   return (
     <main className="page-main">
       <section>
+        <div className="container">
+          <form action="">
+            <input
+              type="text"
+              placeholder="Inserisci il titolo del nuovo post"
+            />
+            <button>Crea nuovo post</button>
+          </form>
+        </div>
+
         <div className="container">
           <div className="row">
             {publishedPost.map((post) => (
