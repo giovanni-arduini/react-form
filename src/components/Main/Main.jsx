@@ -25,7 +25,7 @@ export default function Main() {
     <main className="page-main">
       <section>
         <div className="container">
-          <form action="">
+          <form onSubmit={addPost} action=" ">
             <input
               type="text"
               placeholder="Inserisci il titolo del nuovo post"
