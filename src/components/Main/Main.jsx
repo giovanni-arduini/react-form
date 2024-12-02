@@ -14,10 +14,13 @@ export default function Main() {
     // console.log(`tags is ${tags}`);
   });
 
-  const [postName, setPostName] = useState("Nuovo post");
+  const [postName, setPostName] = useState("");
 
   function addPost(e) {
     e.preventDefault();
+    const newPostName = postName.trim();
+    if (newPostName === "") return;
+
     console.log("Aggiungo post!");
   }
 
