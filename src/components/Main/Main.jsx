@@ -4,8 +4,8 @@ import style from "./Main.module.css";
 import { useState } from "react";
 
 export default function Main() {
-  const publishedPost = posts.filter((post) => post.published === true);
   const [updatedPosts, setUpdatedPosts] = useState(posts);
+  const publishedPost = updatedPosts.filter((post) => post.published === true);
   const tags = [];
 
   posts.forEach((post) => {
@@ -22,6 +22,18 @@ export default function Main() {
     if (newPostName === "") return;
 
     console.log("Aggiungo post!");
+
+    const newPost = {
+      id: Date.now(),
+      title: newPostName,
+      image: undefined,
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.",
+      tags: [],
+      published: true,
+    };
+
+    setUpdatedPosts([...posts, newPost]);
   }
 
   return (
